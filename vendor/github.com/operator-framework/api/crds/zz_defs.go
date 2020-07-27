@@ -98,7 +98,11 @@ func operatorsCoreosCom_catalogsourcesYaml() (*asset, error) {
 		return nil, err
 	}
 
+<<<<<<< HEAD
 	info := bindataFileInfo{name: "operators.coreos.com_catalogsources.yaml", size: 7987, mode: os.FileMode(420), modTime: time.Unix(1596160005, 0)}
+=======
+	info := bindataFileInfo{name: "operators.coreos.com_catalogsources.yaml", size: 7987, mode: os.FileMode(420), modTime: time.Unix(1595866185, 0)}
+>>>>>>> Add Catalog Source priority for dependency resolution
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -118,7 +122,11 @@ func operatorsCoreosCom_clusterserviceversionsYaml() (*asset, error) {
 		return nil, err
 	}
 
+<<<<<<< HEAD
 	info := bindataFileInfo{name: "operators.coreos.com_clusterserviceversions.yaml", size: 666332, mode: os.FileMode(420), modTime: time.Unix(1596160005, 0)}
+=======
+	info := bindataFileInfo{name: "operators.coreos.com_clusterserviceversions.yaml", size: 666332, mode: os.FileMode(420), modTime: time.Unix(1595866185, 0)}
+>>>>>>> Add Catalog Source priority for dependency resolution
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -138,7 +146,11 @@ func operatorsCoreosCom_installplansYaml() (*asset, error) {
 		return nil, err
 	}
 
+<<<<<<< HEAD
 	info := bindataFileInfo{name: "operators.coreos.com_installplans.yaml", size: 13953, mode: os.FileMode(420), modTime: time.Unix(1596160006, 0)}
+=======
+	info := bindataFileInfo{name: "operators.coreos.com_installplans.yaml", size: 13953, mode: os.FileMode(420), modTime: time.Unix(1595866186, 0)}
+>>>>>>> Add Catalog Source priority for dependency resolution
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -158,7 +170,11 @@ func operatorsCoreosCom_operatorgroupsYaml() (*asset, error) {
 		return nil, err
 	}
 
+<<<<<<< HEAD
 	info := bindataFileInfo{name: "operators.coreos.com_operatorgroups.yaml", size: 15412, mode: os.FileMode(420), modTime: time.Unix(1596160006, 0)}
+=======
+	info := bindataFileInfo{name: "operators.coreos.com_operatorgroups.yaml", size: 15412, mode: os.FileMode(420), modTime: time.Unix(1595866186, 0)}
+>>>>>>> Add Catalog Source priority for dependency resolution
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -178,7 +194,11 @@ func operatorsCoreosCom_operatorsYaml() (*asset, error) {
 		return nil, err
 	}
 
+<<<<<<< HEAD
 	info := bindataFileInfo{name: "operators.coreos.com_operators.yaml", size: 9269, mode: os.FileMode(420), modTime: time.Unix(1596160007, 0)}
+=======
+	info := bindataFileInfo{name: "operators.coreos.com_operators.yaml", size: 9275, mode: os.FileMode(420), modTime: time.Unix(1595866186, 0)}
+>>>>>>> Add Catalog Source priority for dependency resolution
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -198,7 +218,11 @@ func operatorsCoreosCom_subscriptionsYaml() (*asset, error) {
 		return nil, err
 	}
 
+<<<<<<< HEAD
 	info := bindataFileInfo{name: "operators.coreos.com_subscriptions.yaml", size: 111704, mode: os.FileMode(420), modTime: time.Unix(1596160007, 0)}
+=======
+	info := bindataFileInfo{name: "operators.coreos.com_subscriptions.yaml", size: 111704, mode: os.FileMode(420), modTime: time.Unix(1595866187, 0)}
+>>>>>>> Add Catalog Source priority for dependency resolution
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
