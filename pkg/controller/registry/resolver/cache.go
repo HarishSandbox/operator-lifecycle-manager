@@ -53,6 +53,7 @@ type OperatorCache struct {
 	m            sync.RWMutex
 }
 
+
 const defaultCatalogSourcePriority int = 0
 
 type catalogSourcePriority int

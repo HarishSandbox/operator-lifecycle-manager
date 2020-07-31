@@ -119,6 +119,7 @@ func operatorsCoreosCom_clusterserviceversionsYaml() (*asset, error) {
 	}
 
 	info := bindataFileInfo{name: "operators.coreos.com_clusterserviceversions.yaml", size: 666332, mode: os.FileMode(420), modTime: time.Unix(1596160005, 0)}
+  
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
