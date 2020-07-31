@@ -11,7 +11,7 @@ import (
 	"github.com/blang/semver"
 	"github.com/sirupsen/logrus"
 
-	v1alpha1listers "github.com/operator-framework/operator-lifecycle-manager/pkg/api/client/listers/operators/v1alpha1"
+	"github.com/operator-framework/operator-lifecycle-manager/pkg/api/client/listers/operators/v1alpha1"
 	"github.com/operator-framework/operator-lifecycle-manager/pkg/controller/registry"
 	"github.com/operator-framework/operator-registry/pkg/api"
 	"github.com/operator-framework/operator-registry/pkg/client"
@@ -46,18 +46,21 @@ type OperatorCacheProvider interface {
 type OperatorCache struct {
 	logger       logrus.FieldLogger
 	rcp          RegistryClientProvider
-	catsrcLister v1alpha1listers.CatalogSourceLister
+	catsrcLister v1alpha1.CatalogSourceLister
 	snapshots    map[registry.CatalogKey]*CatalogSnapshot
 	ttl          time.Duration
 	sem          chan struct{}
 	m            sync.RWMutex
 }
 
-type catalogPriority int
+
+const defaultCatalogSourcePriority int = 0
+
+type catalogSourcePriority int
 
 var _ OperatorCacheProvider = &OperatorCache{}
 
-func NewOperatorCache(rcp RegistryClientProvider, log logrus.FieldLogger, catsrcLister v1alpha1listers.CatalogSourceLister) *OperatorCache {
+func NewOperatorCache(rcp RegistryClientProvider, log logrus.FieldLogger, catsrcLister v1alpha1.CatalogSourceLister) *OperatorCache {
 	const (
 		MaxConcurrentSnapshotUpdates = 4
 	)
@@ -157,7 +160,7 @@ func (c *OperatorCache) Namespaced(namespaces ...string) MultiCatalogOperatorFin
 	for _, miss := range misses {
 		ctx, cancel := context.WithTimeout(context.Background(), CachePopulateTimeout)
 
-		catsrcPriority := 0
+		catsrcPriority := defaultCatalogSourcePriority
 		// Ignoring error and treat catsrc priority as 0 if not found.
 		catsrc, err := c.catsrcLister.CatalogSources(miss.Namespace).Get(miss.Name)
 		if err == nil {
@@ -169,7 +172,7 @@ func (c *OperatorCache) Namespaced(namespaces ...string) MultiCatalogOperatorFin
 			key:      miss,
 			expiry:   now.Add(c.ttl),
 			pop:      cancel,
-			priority: catalogPriority(catsrcPriority),
+			priority: catalogSourcePriority(catsrcPriority),
 		}
 		s.m.Lock()
 		c.snapshots[miss] = &s
@@ -291,7 +294,7 @@ type CatalogSnapshot struct {
 	operators []*Operator
 	m         sync.RWMutex
 	pop       context.CancelFunc
-	priority  catalogPriority
+	priority  catalogSourcePriority
 }
 
 func (s *CatalogSnapshot) Cancel() {

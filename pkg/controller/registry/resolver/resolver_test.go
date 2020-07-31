@@ -355,7 +355,7 @@ func TestSolveOperators_CatsrcPrioritySorting(t *testing.T) {
 					Namespace: "olm",
 					Name:      "high-priority-operator",
 				},
-				priority: catalogPriority(100),
+				priority: catalogSourcePriority(100),
 				operators: []*Operator{
 					genOperator("packageB.v1", "0.0.1", "", "packageB", "alpha", "high-priority-operator",
 						namespace, nil, nil, nil, ""),
@@ -391,7 +391,7 @@ func TestSolveOperators_CatsrcPrioritySorting(t *testing.T) {
 			Namespace: "olm",
 			Name:      "community-operator",
 		},
-		priority: catalogPriority(100),
+		priority: catalogSourcePriority(100),
 		operators: []*Operator{
 			genOperator("packageB.v1", "0.0.1", "", "packageB", "alpha", "community-operator",
 				namespace, nil, nil, nil, ""),
